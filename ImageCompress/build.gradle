@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.sinothk'
 
 android {
     compileSdkVersion 28
@@ -22,6 +24,14 @@ android {
         }
     }
 
+    //引用libs下的资源
+    sourceSets {
+        main {
+            jniLibs.srcDir 'libs'
+            jni.srcDirs = []    //disable automatic ndk-build
+//            java.srcDirs = ['src/main/java']
+        }
+    }
 }
 
 dependencies {
