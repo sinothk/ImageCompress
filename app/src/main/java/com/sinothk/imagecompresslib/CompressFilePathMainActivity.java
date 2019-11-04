@@ -2,11 +2,12 @@ package com.sinothk.imagecompresslib;
 
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.sinothk.helper.image.compress.CompressCallback;
 import com.sinothk.helper.image.compress.ImageCompress;
