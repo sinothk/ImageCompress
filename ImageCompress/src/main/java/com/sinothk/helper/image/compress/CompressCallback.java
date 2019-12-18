@@ -7,5 +7,5 @@ package com.sinothk.helper.image.compress;
  */
 // 定义回调接口
 public interface CompressCallback {
-    void compressed(Object obj);
+    void compressed(String path, String[] pathArr);
 }

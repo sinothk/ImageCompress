@@ -47,10 +47,10 @@ public class ImageCompress {
             public void callback(boolean isSuccess, String outfile) {
                 if (!isSuccess) {
                     Log.e("压缩结果：", "压缩失败!");
-                    callback.compressed(null);
+                    callback.compressed(null, null);
                     return;
                 }
-                callback.compressed(outfile);
+                callback.compressed(outfile, null);
                 Log.e("压缩结果：", "路径 = " + outfile);
             }
         });
@@ -70,10 +70,10 @@ public class ImageCompress {
             @Override
             public void callback(boolean isSuccess, String[] outfile) {
                 if (!isSuccess) {
-                    callback.compressed(null);
+                    callback.compressed(null, null);
                     return;
                 }
-                callback.compressed(outfile);
+                callback.compressed(null, outfile);
             }
         });
     }

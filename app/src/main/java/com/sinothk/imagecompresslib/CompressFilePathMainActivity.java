@@ -74,13 +74,12 @@ public class CompressFilePathMainActivity extends AppCompatActivity {
 
             ImageCompress.execute(outfile1.getPath(), new CompressCallback() {
                 @Override
-                public void compressed(Object obj) {
-                    if (obj == null) {
+                public void compressed(String path, String[] pathArr) {
+                    if (path == null) {
                         return;
                     }
-                    String newPath = (String) obj;
-                    textView1.setText(newPath);
-                    singleImgIv.setImageBitmap(BitmapFactory.decodeFile(newPath));
+                    textView1.setText(path);
+                    singleImgIv.setImageBitmap(BitmapFactory.decodeFile(path));
                 }
             });
 
@@ -138,21 +137,19 @@ public class CompressFilePathMainActivity extends AppCompatActivity {
 
             ImageCompress.execute(pathArr, new CompressCallback() {
                 @Override
-                public void compressed(Object obj) {
-                    if (obj == null) {
+                public void compressed(String path, String[] pathArr) {
+                    if (pathArr == null) {
                         Log.e("a", "a=" + "compress bitmap failed!");
                     } else {
 
-                        final String[] ps = ((String[]) obj);
-
                         String content = "";
-                        for (int i = 0; i < ps.length; i++) {
-                            content += ps[i] + ", ";
+                        for (int i = 0; i < pathArr.length; i++) {
+                            content += pathArr[i] + ", ";
 
                             if (i == 0) {
-                                singleImg1Iv.setImageBitmap(BitmapFactory.decodeFile(ps[i]));
+                                singleImg1Iv.setImageBitmap(BitmapFactory.decodeFile(pathArr[i]));
                             } else if (i == 1) {
-                                singleImg2Iv.setImageBitmap(BitmapFactory.decodeFile(ps[i]));
+                                singleImg2Iv.setImageBitmap(BitmapFactory.decodeFile(pathArr[i]));
                             }
                         }
 
